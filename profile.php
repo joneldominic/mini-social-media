@@ -42,10 +42,9 @@
 
 <!-- Posts -->
 <?php
-    list($post_ID, $post_userID, $post_titles, $post_contents, $post_datePosted) = $up->getPost($_SESSION['id'], 2);
+    list($post_ID, $post_userID, $post_titles, $post_contents, $post_datePosted) = $pControl->getPosts($_SESSION['id'], 2);
 
-    for($index = 0; $index < sizeof($post_titles); $index++) {
-
+    for ($index = 0; $index < sizeof($post_titles); $index++) {
         $post_user = $up->getUserInformation($post_userID[$index]);
 
         echo "".
@@ -56,14 +55,14 @@
                             " " . $post_user['firstname'] . " " . $post_user['lastname'] .
                         '</a>'
             ."";
-                        if($post_userID[$index] == $_SESSION['id']) {
-                            echo "" .
+        if ($post_userID[$index] == $_SESSION['id']) {
+            echo "" .
                                 '<div class=" float-right">' .
                                     '<a href="editpost.php?id=postID" class="btn btn-sm btn-info "> <span class="fas fa-pen"></span> </a>' .
                                     '<a href="#" class="btn btn-sm btn-danger "> <span class="fas fa-trash"></span> </a>' .
                                 '</div>'
                             ."";
-                        }
+        }
 
         echo "".    '</div>' .
 
@@ -83,63 +82,8 @@
                     '</div>' .
                 '</div>'
             ."";
-
     }
 
  ?>
-
-
-<!-- your posts -->
-<!--
-<div class="card mb-4">
-  <div class="card-header">
-    <a class="font-weight-bold" href="#">
-      <img src="./images/dp.jpg" alt="..." class="border border-dark rounded-circle img-icon">
-      Your account profile name here
-    </a>
-    <div class=" float-right">
-      <a href="editpost.php?id=postID" class="btn btn-sm btn-info "> <span class="fas fa-pen"></span> </a>
-      <a href="#" class="btn btn-sm btn-danger "> <span class="fas fa-trash"></span> </a>
-    </div>
-  </div>
-  <div class="card-body">
-    <a href="viewpost.php?id=postIDhere"><h3 class="card-title">This is your POst 1</h3></a>
-    <p class="card-text">You can edit and update your post.  Post your profile (profile.php) should be sort by date, from latest to oldest</p>
-    <a href="viewpost.php?id=postIDhere" class="btn btn-secondary float-right">
-      <span class="fas fa-comment-alt"></span> Comment
-    </a>
-  </div>
-  <div class="card-footer text-muted">
-    <small>
-      Posted on January 1, 2017 by
-    </small>
-  </div>
-</div>
-
-<div class="card mb-4">
-  <div class="card-header">
-    <a class="font-weight-bold" href="#">
-      <img src="./images/dp.jpg" alt="..." class="border border-dark rounded-circle img-icon">
-      Your account profile name here
-    </a>
-    <div class=" float-right">
-      <a href="editpost.php?id=postID" class="btn btn-sm btn-info "> <span class="fas fa-pen"></span> </a>
-      <a href="#" class="btn btn-sm btn-danger "> <span class="fas fa-trash"></span> </a>
-    </div>
-  </div>
-  <div class="card-body">
-    <a href="viewpost.php?id=postIDhere"><h3 class="card-title">This is your POst 2</h3></a>
-    <p class="card-text">You can edit and update your post</p>
-    <a href="viewpost.php?id=postIDhere" class="btn btn-secondary float-right">
-      <span class="fas fa-comment-alt"></span> Comment
-    </a>
-  </div>
-  <div class="card-footer text-muted">
-    <small>
-      Posted on January 1, 2017 by
-    </small>
-  </div>
-</div>
--->
 
 <?php include 'includes/footer.php'; ?>

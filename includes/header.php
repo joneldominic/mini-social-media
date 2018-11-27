@@ -6,10 +6,14 @@
   }
 
   include_once 'controller/UserProfileController.php';
+  include_once 'controller/postController.php';
+
 
 
   $up = new UserProfileController;
   $user_data = $up->getUserInformation($_SESSION['id']);
+
+  $pControl = new PostController;
 
  ?>
 
