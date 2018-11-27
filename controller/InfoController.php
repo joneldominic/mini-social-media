@@ -32,13 +32,13 @@ class InfoController
     public function getPrivacy()
     {
         $db = new config;
-        $this->$conn = $db->dbconnect();
+        $conn = $db->dbconnect();
 
         $qry = "SELECT * FROM privacy";
         $res = $conn->query($qry);
 
         if ($res->num_rows > 0) {
-            $data = $res->fetch_assoc();
+            $data = $res;//->fetch_assoc();
             return $data;
         } else {
             return null;

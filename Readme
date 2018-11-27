@@ -21,7 +21,7 @@ Task:
    - Sort comments by date, Latest will be at the top
 
  - index.php or Home Page
-   - Add function to post in news feed
+   - Add function to post in news feed (DONE)
    - All of your post and your friend's post that are not set into private (DONE)
    - sort by date. Latest will be at the top (DONE)
 

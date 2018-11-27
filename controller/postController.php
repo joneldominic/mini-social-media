@@ -11,11 +11,13 @@ class PostController
         $db->dbconnect();
     }
 
-    public function getPosts($userID, $privacy) {
+    // public function getPosts($userID, $privacy_condition) {
+    public function getPosts($query_condition) {
         $db = new config; // create config instance
         $conn = $db->dbconnect(); // getting the connection
 
-        $qry = "SELECT * FROM posts WHERE user_id LIKE '$userID' AND privacy!=$privacy ORDER BY date_posted DESC";
+        // $qry = "SELECT * FROM posts WHERE user_id LIKE '$userID' AND privacy=1 OR privacy=2 ORDER BY date_posted DESC";
+        $qry = "SELECT * FROM posts WHERE $query_condition ORDER BY date_posted DESC";
         $res = $conn->query($qry);
 
         $post_ID = array();
@@ -40,5 +42,27 @@ class PostController
             return null;
         }
     }
+
+    public function addPost($data)
+    {
+        $db = new config; // create config instance
+        $conn = $db->dbconnect(); // getting the connection
+
+        $user_id = $data['user_id'];
+        $post_title = $data['post_title'];
+        $post_content = $data['post_content'];
+        $post_privacy = $data['$post_privacy'];
+
+
+        $qry_add_post = "INSERT INTO `posts`(`user_id`, `title`, `content`, `privacy`) VALUES ('$user_id','$post_title','$post_content', '$post_privacy')"; // query string
+
+        // check the connection if successful
+        if ($conn->query($qry_add_post) === true) {
+            Header('Location: index.php');
+        }
+
+        $conn->close(); // close the connection
+    }
+
 
 }
