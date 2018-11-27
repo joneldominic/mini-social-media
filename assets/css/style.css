@@ -1,0 +1,23 @@
+body {
+  padding-top: 54px;
+  padding-bottom: 54px;
+}
+
+.img-icon {
+  width: 40px;
+  height: 40px;
+  max-width: 40px !important;
+}
+
+.profile-img-60 {
+  width: 60px;
+  height: 60px;
+  max-width: 60px !important;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}

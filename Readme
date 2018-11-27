@@ -1,0 +1,43 @@
+- Create a database in your localhost server
+- Import the soicialmediamini_db.sql file
+- Open localhost/<your-folder>/register.php
+- Register an account and login
+
+Task:
+ -Note: Only logged in users can visit all pages except the following:
+        - register.php  (DONE)
+        - login.php     (DONE)
+
+ - Follow the template and and functions
+
+ - POST
+   - You and your friends can comment in your POST
+   - You can Edit your post
+   - You can delete your post
+   - When you delete the post make sure the all comments are also deleted in the database
+
+ - Comments
+   - The user who posted the comment can delete the comment
+   - Sort comments by date, Latest will be at the top
+
+ - index.php or Home Page
+   - Add function to post in news feed
+   - All of your post and your friend's post that are not set into private (DONE)
+   - sort by date. Latest will be at the top (DONE)
+
+ - Profile page (pofile.php)
+   - same with Home Page but only your post (DONE)
+
+ - Friend page (friendslist.php)
+   - list of friend requests
+     - You can accept or decline the request
+     - Add button decline
+     - List of friends
+     - add function unfriend to remove the person as your friend
+
+ - manage Profile
+   - update funtion is (DONE)
+   - Add Profile Image (DONE)
+
+ - Change password (DONE)
+ - Sign Out (DONE)
