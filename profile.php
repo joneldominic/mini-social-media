@@ -91,7 +91,7 @@
 
 <!-- Posts -->
 <?php
-    list($post_ID, $post_userID, $post_titles, $post_contents, $post_datePosted) = $pControl->getPosts("user_id =".$_SESSION['id']." AND (privacy=1 OR privacy=2 OR privacy=3)");
+    list($post_ID, $post_userID, $post_titles, $post_contents, $post_datePosted) = $pControl->getPosts("user_id =".$_SESSION['id']."");
 
     for ($index = 0; $index < sizeof($post_titles); $index++) {
         $post_user = $up->getUserInformation($post_userID[$index]);
@@ -108,6 +108,7 @@
                                 echo "" .
                                     '<div class=" float-right">' .
                                         '<a href="editpost.php?id=' . $post_ID[$index] . '" class="btn btn-sm btn-info "> <span class="fas fa-pen"></span> </a>' .
+                                        // '<a href="#" id="deletePost" name="deletePost" post-id-ref="'.$post_ID[$index].'" class="btn btn-sm btn-danger "> <span class="fas fa-trash"></span> </a>' .
                                         '<a href="#" id="deletePost" name="deletePost" post-id-ref="'.$post_ID[$index].'" class="btn btn-sm btn-danger "> <span class="fas fa-trash"></span> </a>' .
                                         // document.getElementById(SELECTED_DATE_ID).getAttribute('data-value'); for JavaScript to access attibute for id
                                     '</div>'

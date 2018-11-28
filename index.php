@@ -91,7 +91,7 @@
 
 <!-- Posts -->
 <?php
-    list($post_ID, $post_userID, $post_titles, $post_contents, $post_datePosted) = $pControl->getPosts("user_id LIKE '%' AND (privacy=1 OR privacy=3)");
+    list($post_ID, $post_userID, $post_titles, $post_contents, $post_datePosted) = $pControl->getPosts("(user_id LIKE '%' AND (privacy=1 OR privacy=3)) OR (user_id=". $_SESSION['id'] ." AND privacy=2)");
 
     for ($index = 0; $index < sizeof($post_titles); $index++) {
         $post_user = $up->getUserInformation($post_userID[$index]);
