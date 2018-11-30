@@ -18,7 +18,10 @@
         $login = $auth->login($data); // calling function login() from instance AuthController class
         if ($login === false) {
             // you can make a better way to display the errors here
-            echo "ERROR";
+            echo "  <div class='alert alert-danger'>
+                        <strong>Error!</strong> Account not found.
+                    </div>
+            ";
         }
     }
 ?>

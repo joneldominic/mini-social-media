@@ -11,14 +11,14 @@ Task:
  - Follow the template and and functions
 
  - POST
-   - You and your friends can comment in your POST
-   - You can Edit your post
-   - You can delete your post
-   - When you delete the post make sure the all comments are also deleted in the database
+   - You and your friends can comment in your POST (DONE)
+   - You can Edit your post (DONE)
+   - You can delete your post (DONE)
+   - When you delete the post make sure the all comments are also deleted in the database (DONE)
 
  - Comments
-   - The user who posted the comment can delete the comment
-   - Sort comments by date, Latest will be at the top
+   - The user who posted the comment can delete the comment (DONE)
+   - Sort comments by date, Latest will be at the top (DONE)
 
  - index.php or Home Page
    - Add function to post in news feed (DONE)
@@ -29,11 +29,11 @@ Task:
    - same with Home Page but only your post (DONE)
 
  - Friend page (friendslist.php)
-   - list of friend requests
-     - You can accept or decline the request
-     - Add button decline
-     - List of friends
-     - add function unfriend to remove the person as your friend
+   - list of friend requests (DONE)
+     - You can accept or decline the request (DONE)
+     - Add button decline (DONE)
+     - List of friends (DDONE)
+     - add function unfriend to remove the person as your friend (DONE)
 
  - manage Profile
    - update funtion is (DONE)

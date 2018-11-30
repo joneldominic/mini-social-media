@@ -7,6 +7,7 @@
 
   include_once 'controller/UserProfileController.php';
   include_once 'controller/postController.php';
+  include_once 'controller/friendsController.php';
 
 
 
@@ -14,6 +15,7 @@
   $user_data = $up->getUserInformation($_SESSION['id']);
 
   $pControl = new PostController;
+  $fControl = new FriendsController;
 
  ?>
 
@@ -34,6 +36,8 @@
     <link href="./assets/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/font-awesome/css/all.css">
 
+
+
   </head>
 
   <body>
@@ -48,7 +52,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="profile.php?id=<?php echo $user_data['id']?>">
+              <a class="nav-link" href="profile.php?id=<?php echo $user_data['user_id']?>">
                 <span class="fas fa-user"></span>
 
                 <?php
@@ -69,7 +73,8 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="friendslist.php">
-                <span class="badge badge-pill badge-danger">2</span>
+                <?php   $requestList = $fControl->getRequests($user_data['user_id']) ?>
+                <span class="badge badge-pill badge-danger"><?php if(is_array($requestList)) {echo sizeof($requestList);} ?></span>
                 <span class="fas fa-users"></span>
                 Friends
               </a>
