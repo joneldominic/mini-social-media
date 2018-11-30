@@ -25,6 +25,7 @@ class PostController
         $post_titles = array();
         $post_contents = array();
         $post_datePosted = array();
+        $post_privacy = array();
 
         if ($res->num_rows > 0) {
             while ($row = $res->fetch_assoc()) {
@@ -33,10 +34,11 @@ class PostController
                 array_push($post_titles, $row['title']);
                 array_push($post_contents, $row['content']);
                 array_push($post_datePosted, $row['date_posted']);
+                array_push($post_privacy, $row['privacy']);
             }
 
             $conn->close();
-            return array($post_ID, $post_userID, $post_titles, $post_contents, $post_datePosted);
+            return array($post_ID, $post_userID, $post_titles, $post_contents, $post_datePosted, $post_privacy);
         } else {
             $conn->close();
             return null;

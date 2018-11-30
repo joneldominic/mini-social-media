@@ -102,10 +102,20 @@
 </div>
 
 <?php
-    list($post_ID, $post_userID, $post_titles, $post_contents, $post_datePosted) = $pControl->getPosts("(user_id LIKE '%' AND (privacy=1 OR privacy=3)) OR (user_id=". $_SESSION['id'] ." AND privacy=2)");
+    list($post_ID, $post_userID, $post_titles, $post_contents, $post_datePosted, $post_privacy) = $pControl->getPosts("(user_id LIKE '%' AND (privacy=1 OR privacy=3)) OR (user_id=". $_SESSION['id'] ." AND privacy=2)");
+
+
     if(is_array($post_titles)) {
         for ($index = 0; $index < sizeof($post_titles); $index++) {
             $post_user = $up->getUserInformation($post_userID[$index]);
+
+            if ( $fControl->isFriend($user_data['user_id'], $post_userID[$index]) OR
+                 (!$fControl->isFriend($user_data['user_id'], $post_userID[$index]) AND $post_privacy[$index]==1) OR
+                 $post_userID[$index] == $user_data['user_id']) {
+                // echo "Friends Should be visible";
+
+
+
  ?>
             <div class="card mb-4">
                 <div class="card-header">
@@ -138,23 +148,23 @@
                     }
 ?>
                 </div>
-
-                <div class="card-body">
-                    <a href="viewpost.php?id=<?php echo $post_ID[$index] ?>">
-                        <h3 class="card-title"><?php echo $post_titles[$index] ?></h3>
-                    </a>
-                    <p class="card-text"><?php echo $post_contents[$index] ?></p>
-                    <a href="viewpost.php?id=<?php echo $post_ID[$index] ?>" class="btn btn-secondary float-right">
-                        <span class="fas fa-comment-alt"></span> Comment
-                    </a>
+                    <div class="card-body">
+                        <a href="viewpost.php?id=<?php echo $post_ID[$index] ?>">
+                            <h3 class="card-title"><?php echo $post_titles[$index] ?></h3>
+                        </a>
+                        <p class="card-text"><?php echo $post_contents[$index] ?></p>
+                        <a href="viewpost.php?id=<?php echo $post_ID[$index] ?>" class="btn btn-secondary float-right">
+                            <span class="fas fa-comment-alt"></span> Comment
+                        </a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small>
+                            Posted on <?php echo $post_datePosted[$index] ?>
+                        </small>
+                    </div>
                 </div>
-                <div class="card-footer text-muted">
-                    <small>
-                        Posted on <?php echo $post_datePosted[$index] ?>
-                    </small>
-                </div>
-            </div>
 <?php
+            }
         }
     }
 ?>
